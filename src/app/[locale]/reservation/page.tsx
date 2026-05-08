@@ -26,7 +26,7 @@ export default async function ReservationPage({
   const t = await getTranslations('Reservation');
 
   return (
-    <section className="px-8 py-20 bg-bg-2">
+    <section className="px-5 sm:px-8 py-12 md:py-20 bg-bg-2">
       <div className="max-w-7xl mx-auto">
         <SectionHead tag={t('tag')} title={t('title')} desc={t('desc')} />
         <ReservationForm />

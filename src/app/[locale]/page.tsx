@@ -20,7 +20,7 @@ export default async function HomePage({
   return (
     <>
       {/* ===== ヒーロー ===== */}
-      <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center animate-kenburns"
           style={{
@@ -28,62 +28,63 @@ export default async function HomePage({
           }}
         />
 
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          <span className="inline-block text-gold text-xs tracking-[0.4em] uppercase font-medium mb-6">
+        <div className="relative z-10 text-center px-5 max-w-4xl mx-auto pt-20 pb-32 sm:pb-28">
+          <span className="inline-block text-gold text-[0.65rem] sm:text-xs tracking-[0.3em] sm:tracking-[0.4em] uppercase font-medium mb-5">
             — {t('badge')} —
           </span>
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.05] mb-7">
+          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-medium leading-[1.05] mb-6 sm:mb-7">
             {t('title')}
           </h1>
-          <p className="text-text-dim max-w-2xl mx-auto mb-10 text-base md:text-lg">
+          <p className="text-text-dim max-w-2xl mx-auto mb-8 sm:mb-10 text-sm sm:text-base md:text-lg px-2">
             {t('lead')}
           </p>
-          <div className="flex gap-4 justify-center flex-wrap">
+          <div className="flex gap-3 sm:gap-4 justify-center flex-wrap">
             <Link
               href="/reservation"
-              className="px-9 py-4 bg-gold text-bg text-xs font-semibold tracking-[0.2em] uppercase border border-gold hover:bg-transparent hover:text-gold transition-all"
+              className="px-6 sm:px-9 py-3 sm:py-4 bg-gold text-bg text-[0.7rem] sm:text-xs font-semibold tracking-[0.18em] sm:tracking-[0.2em] uppercase border border-gold hover:bg-transparent hover:text-gold transition-all"
             >
               {t('cta_reserve')}
             </Link>
             <Link
               href="/menu"
-              className="px-9 py-4 bg-transparent text-text text-xs font-semibold tracking-[0.2em] uppercase border border-text hover:bg-text hover:text-bg transition-all"
+              className="px-6 sm:px-9 py-3 sm:py-4 bg-transparent text-text text-[0.7rem] sm:text-xs font-semibold tracking-[0.18em] sm:tracking-[0.2em] uppercase border border-text hover:bg-text hover:text-bg transition-all"
             >
               {t('cta_menu')}
             </Link>
           </div>
         </div>
 
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-8 px-7 py-4 bg-black/70 backdrop-blur-sm border border-gold/20 z-10 text-xs tracking-wider flex-wrap justify-center">
-          <span className="text-text-dim">
+        {/* 営業時間バナー */}
+        <div className="absolute bottom-4 sm:bottom-12 left-1/2 -translate-x-1/2 flex gap-3 sm:gap-8 px-4 sm:px-7 py-3 sm:py-4 bg-black/70 backdrop-blur-sm border border-gold/20 z-10 text-[0.65rem] sm:text-xs tracking-wider flex-wrap justify-center max-w-[calc(100%-2rem)]">
+          <span className="text-text-dim whitespace-nowrap">
             <strong className="text-gold font-semibold">{tHours('weekdays')}</strong> {tHours('open')}
           </span>
-          <span className="text-text-dim">
+          <span className="text-text-dim whitespace-nowrap">
             <strong className="text-gold font-semibold">{tHours('sunday')}</strong> {tHours('closed')}
           </span>
-          <span className="text-text-dim">📞 +41 44 123 45 67</span>
+          <span className="text-text-dim whitespace-nowrap hidden sm:inline">📞 +41 44 123 45 67</span>
         </div>
       </section>
 
       {/* ===== About プレビュー ===== */}
-      <section className="px-8 py-32 bg-bg-2">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="relative aspect-[4/5] bg-cover bg-center"
+      <section className="px-5 sm:px-8 py-16 md:py-32 bg-bg-2">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="relative aspect-[4/5] bg-cover bg-center max-w-md mx-auto lg:max-w-none w-full"
             style={{ backgroundImage: "url('https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800&q=85')" }}>
-            <div className="absolute -bottom-6 -right-6 w-full h-full border border-gold pointer-events-none" />
+            <div className="hidden lg:block absolute -bottom-6 -right-6 w-full h-full border border-gold pointer-events-none" />
           </div>
           <div>
-            <span className="text-gold text-xs tracking-[0.4em] uppercase font-medium">
+            <span className="text-gold text-[0.65rem] md:text-xs tracking-[0.3em] md:tracking-[0.4em] uppercase font-medium">
               {tAbout('tag')}
             </span>
-            <h2 className="font-serif text-3xl md:text-5xl font-medium leading-tight mt-4 mb-6">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl font-medium leading-tight mt-3 mb-5 md:mb-6">
               {tAbout('title')}
             </h2>
-            <p className="text-text-dim mb-4">{tAbout('p1')}</p>
-            <p className="text-text-dim mb-8">{tAbout('p2')}</p>
+            <p className="text-text-dim mb-4 text-sm sm:text-base">{tAbout('p1')}</p>
+            <p className="text-text-dim mb-6 md:mb-8 text-sm sm:text-base">{tAbout('p2')}</p>
             <Link
               href="/about"
-              className="inline-block text-gold border-b border-gold pb-1 text-sm tracking-[0.15em] uppercase hover:text-gold-light hover:border-gold-light transition-colors"
+              className="inline-block text-gold border-b border-gold pb-1 text-[0.7rem] sm:text-sm tracking-[0.15em] uppercase hover:text-gold-light hover:border-gold-light transition-colors"
             >
               {tNav('about')} →
             </Link>
@@ -92,31 +93,31 @@ export default async function HomePage({
       </section>
 
       {/* ===== Menu プレビュー ===== */}
-      <section className="px-8 py-32">
+      <section className="px-5 sm:px-8 py-16 md:py-32">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-gold text-xs tracking-[0.4em] uppercase font-medium">
+          <div className="text-center mb-10 md:mb-16">
+            <span className="text-gold text-[0.65rem] md:text-xs tracking-[0.3em] md:tracking-[0.4em] uppercase font-medium">
               {tMenu('tag')}
             </span>
-            <h2 className="font-serif text-3xl md:text-5xl font-medium mt-4 mb-4">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl font-medium mt-3 mb-3 md:mb-4">
               {tMenu('title')}
             </h2>
-            <p className="text-text-dim max-w-xl mx-auto">{tMenu('desc')}</p>
+            <p className="text-text-dim max-w-xl mx-auto text-sm sm:text-base">{tMenu('desc')}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 max-w-4xl mx-auto mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 md:gap-y-8 max-w-4xl mx-auto mb-10 md:mb-12">
             {[
               { name: 'Bündner Gerstensuppe', desc: 'Traditionelle Suppe mit Bergkäse', price: 'CHF 14' },
               { name: 'Zürcher Geschnetzeltes', desc: 'Klassisch mit Rösti und Champignons', price: 'CHF 42' },
               { name: 'Älplermagronen', desc: 'Pasta · Bergkartoffeln · Sbrinz', price: 'CHF 32' },
               { name: 'Engadiner Nusstorte', desc: 'Hausgemacht · mit Vanilleeis', price: 'CHF 14' },
             ].map((item) => (
-              <div key={item.name} className="border-b border-dashed border-gold/20 pb-5">
-                <div className="flex justify-between items-baseline gap-4 mb-2">
-                  <span className="font-serif text-lg font-medium">{item.name}</span>
-                  <span className="font-serif text-lg text-gold whitespace-nowrap">{item.price}</span>
+              <div key={item.name} className="border-b border-dashed border-gold/20 pb-4 md:pb-5">
+                <div className="flex justify-between items-baseline gap-3 mb-2">
+                  <span className="font-serif text-base sm:text-lg font-medium">{item.name}</span>
+                  <span className="font-serif text-base sm:text-lg text-gold whitespace-nowrap">{item.price}</span>
                 </div>
-                <p className="text-text-dim text-sm italic">{item.desc}</p>
+                <p className="text-text-dim text-xs sm:text-sm italic">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -124,7 +125,7 @@ export default async function HomePage({
           <div className="text-center">
             <Link
               href="/menu"
-              className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase hover:bg-gold hover:text-bg transition-all"
+              className="inline-block border border-gold text-gold px-6 sm:px-8 py-2.5 sm:py-3 text-[0.7rem] sm:text-xs tracking-[0.18em] sm:tracking-[0.2em] uppercase hover:bg-gold hover:text-bg transition-all"
             >
               {tNav('menu')} →
             </Link>
@@ -133,18 +134,18 @@ export default async function HomePage({
       </section>
 
       {/* ===== Gallery プレビュー ===== */}
-      <section className="px-8 py-32 bg-bg-2">
+      <section className="px-5 sm:px-8 py-16 md:py-32 bg-bg-2">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-gold text-xs tracking-[0.4em] uppercase font-medium">
+          <div className="text-center mb-8 md:mb-12">
+            <span className="text-gold text-[0.65rem] md:text-xs tracking-[0.3em] md:tracking-[0.4em] uppercase font-medium">
               {tGallery('tag')}
             </span>
-            <h2 className="font-serif text-3xl md:text-5xl font-medium mt-4">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl font-medium mt-3">
               {tGallery('title')}
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 mb-8 md:mb-10">
             {[
               'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&q=80',
               'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500&q=80',
@@ -162,7 +163,7 @@ export default async function HomePage({
           <div className="text-center">
             <Link
               href="/gallery"
-              className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase hover:bg-gold hover:text-bg transition-all"
+              className="inline-block border border-gold text-gold px-6 sm:px-8 py-2.5 sm:py-3 text-[0.7rem] sm:text-xs tracking-[0.18em] sm:tracking-[0.2em] uppercase hover:bg-gold hover:text-bg transition-all"
             >
               {tNav('gallery')} →
             </Link>
@@ -171,18 +172,18 @@ export default async function HomePage({
       </section>
 
       {/* ===== Events プレビュー ===== */}
-      <section className="px-8 py-32">
+      <section className="px-5 sm:px-8 py-16 md:py-32">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-gold text-xs tracking-[0.4em] uppercase font-medium">
+          <div className="text-center mb-8 md:mb-12">
+            <span className="text-gold text-[0.65rem] md:text-xs tracking-[0.3em] md:tracking-[0.4em] uppercase font-medium">
               {tEvents('tag')}
             </span>
-            <h2 className="font-serif text-3xl md:text-5xl font-medium mt-4">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl font-medium mt-3">
               {tEvents('title')}
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
             {[
               { img: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', date: tEvents('e1_date'), title: tEvents('e1_title'), desc: tEvents('e1_desc') },
               { img: 'https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&q=80', date: tEvents('e2_date'), title: tEvents('e2_title'), desc: tEvents('e2_desc') },
@@ -190,19 +191,19 @@ export default async function HomePage({
             ].map((ev, i) => (
               <article key={i} className="bg-bg-2 border border-border overflow-hidden hover:border-gold-dark transition-colors">
                 <div className="aspect-[16/10] bg-cover bg-center" style={{ backgroundImage: `url('${ev.img}')` }} />
-                <div className="p-6">
-                  <div className="text-gold text-[0.7rem] tracking-[0.18em] uppercase mb-2">{ev.date}</div>
-                  <h3 className="font-serif text-lg font-medium mb-2">{ev.title}</h3>
-                  <p className="text-text-dim text-sm">{ev.desc}</p>
+                <div className="p-5 sm:p-6">
+                  <div className="text-gold text-[0.65rem] sm:text-[0.7rem] tracking-[0.18em] uppercase mb-2">{ev.date}</div>
+                  <h3 className="font-serif text-base sm:text-lg font-medium mb-2">{ev.title}</h3>
+                  <p className="text-text-dim text-xs sm:text-sm">{ev.desc}</p>
                 </div>
               </article>
             ))}
           </div>
 
-          <div className="text-center mt-10">
+          <div className="text-center mt-8 md:mt-10">
             <Link
               href="/events"
-              className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase hover:bg-gold hover:text-bg transition-all"
+              className="inline-block border border-gold text-gold px-6 sm:px-8 py-2.5 sm:py-3 text-[0.7rem] sm:text-xs tracking-[0.18em] sm:tracking-[0.2em] uppercase hover:bg-gold hover:text-bg transition-all"
             >
               {tNav('events')} →
             </Link>
@@ -212,24 +213,24 @@ export default async function HomePage({
 
       {/* ===== 予約CTA ===== */}
       <section
-        className="relative px-8 py-32 bg-cover bg-center"
+        className="relative px-5 sm:px-8 py-16 md:py-32 bg-cover bg-center"
         style={{
           backgroundImage: `linear-gradient(rgba(14,14,14,0.85), rgba(14,14,14,0.85)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80')`,
         }}
       >
         <div className="max-w-3xl mx-auto text-center">
-          <span className="text-gold text-xs tracking-[0.4em] uppercase font-medium">
+          <span className="text-gold text-[0.65rem] md:text-xs tracking-[0.3em] md:tracking-[0.4em] uppercase font-medium">
             {tNav('reserve')}
           </span>
-          <h2 className="font-serif text-3xl md:text-5xl font-medium mt-4 mb-6">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl font-medium mt-3 mb-5 md:mb-6">
             {t('cta_reserve')}
           </h2>
-          <p className="text-text-dim mb-10">
+          <p className="text-text-dim mb-8 md:mb-10 text-sm sm:text-base">
             +41 44 123 45 67 · Bahnhofstrasse 42, 8001 Zürich
           </p>
           <Link
             href="/reservation"
-            className="inline-block px-10 py-4 bg-gold text-bg text-xs font-semibold tracking-[0.2em] uppercase border border-gold hover:bg-transparent hover:text-gold transition-all"
+            className="inline-block px-8 sm:px-10 py-3 sm:py-4 bg-gold text-bg text-[0.7rem] sm:text-xs font-semibold tracking-[0.18em] sm:tracking-[0.2em] uppercase border border-gold hover:bg-transparent hover:text-gold transition-all"
           >
             {t('cta_reserve')}
           </Link>

@@ -7,8 +7,8 @@ export default async function Footer() {
   const tHours = await getTranslations('Hours');
 
   return (
-    <footer className="bg-[#080808] border-t border-border pt-20 px-8 pb-8">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-[#080808] border-t border-border pt-12 md:pt-20 px-5 sm:px-8 pb-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
 
         <div>
           <h4 className="font-serif text-gold text-base font-medium tracking-wider mb-5">Alpine Kitchen</h4>

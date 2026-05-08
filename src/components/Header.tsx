@@ -17,8 +17,8 @@ export default async function Header() {
 
   return (
     <header className="fixed top-0 w-full z-50 bg-bg/60 backdrop-blur-xl border-b border-gold/15">
-      <nav className="max-w-7xl mx-auto px-6 md:px-8 py-4 flex justify-between items-center">
-        <Link href="/" className="font-serif text-xl font-semibold tracking-widest text-text flex items-center gap-2">
+      <nav className="max-w-7xl mx-auto px-5 md:px-8 py-3 md:py-4 flex justify-between items-center">
+        <Link href="/" className="font-serif text-base sm:text-xl font-semibold tracking-widest text-text flex items-center gap-2">
           Alpine <span className="text-gold italic">·</span> Kitchen
         </Link>
 
