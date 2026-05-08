@@ -22,7 +22,7 @@ export default function MobileMenu() {
     { href: '/access', label: t('access') },
     { href: '/events', label: t('events') },
     { href: '/contact', label: t('contact') },
-  ] as const;
+  ];
 
   return (
     <>
@@ -35,50 +35,89 @@ export default function MobileMenu() {
       </button>
 
       {/* Overlay */}
-      <div
-        className={`fixed inset-0 bg-black/80 z-50 transition-opacity duration-300 lg:hidden ${
-          open ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
-        onClick={() => setOpen(false)}
-      />
+      {open && (
+        <div
+          className="fixed inset-0 bg-black/80 z-40 lg:hidden"
+          onClick={() => setOpen(false)}
+        />
+      )}
 
-      {/* Slide-out drawer */}
+      {/* Slide-out drawer - iOS Safari 対策で 100dvh + 明示的スタイル */}
       <aside
-        style={{ backgroundColor: '#0e0e0e' }}
-        className={`fixed top-0 right-0 bottom-0 h-full w-[85%] max-w-sm z-50 transition-transform duration-300 ease-out lg:hidden flex flex-col shadow-2xl ${
-          open ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        style={{
+          backgroundColor: '#0e0e0e',
+          height: '100dvh',
+          maxHeight: '100vh',
+          width: '85%',
+          maxWidth: '24rem',
+          position: 'fixed',
+          top: 0,
+          right: 0,
+          zIndex: 50,
+          display: open ? 'flex' : 'none',
+          flexDirection: 'column',
+          boxShadow: '0 0 40px rgba(0,0,0,0.5)',
+          transform: open ? 'translateX(0)' : 'translateX(100%)',
+        }}
+        className="lg:hidden"
       >
         {/* ヘッダー */}
         <div
-          style={{ backgroundColor: '#161616' }}
-          className="flex justify-between items-center px-6 py-5 border-b border-gold/30 flex-shrink-0"
+          style={{
+            backgroundColor: '#161616',
+            flexShrink: 0,
+            padding: '20px 24px',
+            borderBottom: '1px solid rgba(201,169,97,0.3)',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
         >
-          <span className="font-serif text-lg text-gold tracking-wider">Menu</span>
+          <span style={{ color: '#c9a961', fontSize: '18px', letterSpacing: '0.1em' }} className="font-serif">
+            Menu
+          </span>
           <button
             onClick={() => setOpen(false)}
-            className="text-text text-3xl leading-none w-10 h-10 flex items-center justify-center hover:text-gold transition-colors"
+            style={{ color: '#f5f1e8', fontSize: '32px', lineHeight: 1, width: '40px', height: '40px' }}
             aria-label="Close"
           >
             ×
           </button>
         </div>
 
-        {/* メニュー本体 */}
+        {/* メニュー本体 - 確実に表示されるよう固定スタイル */}
         <nav
-          style={{ backgroundColor: '#0e0e0e' }}
-          className="flex-1 overflow-y-auto"
+          style={{
+            backgroundColor: '#0e0e0e',
+            flex: '1 1 auto',
+            overflowY: 'auto',
+            minHeight: 0,
+          }}
         >
-          <ul>
+          <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
             {navItems.map((item) => (
-              <li key={item.href} className="border-b border-gold/15">
+              <li
+                key={item.href}
+                style={{ borderBottom: '1px solid rgba(201,169,97,0.15)' }}
+              >
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-between px-6 py-5 text-text text-base tracking-[0.18em] uppercase font-medium hover:bg-gold/10 hover:text-gold active:bg-gold/20 transition-colors"
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '20px 24px',
+                    color: '#f5f1e8',
+                    fontSize: '16px',
+                    letterSpacing: '0.18em',
+                    textTransform: 'uppercase',
+                    fontWeight: 500,
+                    textDecoration: 'none',
+                  }}
                 >
                   <span>{item.label}</span>
-                  <span className="text-gold text-sm">→</span>
+                  <span style={{ color: '#c9a961', fontSize: '14px' }}>→</span>
                 </Link>
               </li>
             ))}
@@ -87,16 +126,35 @@ export default function MobileMenu() {
 
         {/* フッター */}
         <div
-          style={{ backgroundColor: '#161616' }}
-          className="px-6 py-5 border-t border-gold/30 space-y-4 flex-shrink-0"
+          style={{
+            backgroundColor: '#161616',
+            flexShrink: 0,
+            padding: '20px 24px',
+            borderTop: '1px solid rgba(201,169,97,0.3)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '16px',
+          }}
         >
-          <div className="flex justify-center">
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
             <LanguageSwitcher />
           </div>
           <Link
             href="/reservation"
             onClick={() => setOpen(false)}
-            className="block w-full bg-gold text-bg text-center py-3.5 text-xs font-bold tracking-[0.2em] uppercase hover:bg-gold-light transition-colors"
+            style={{
+              display: 'block',
+              width: '100%',
+              backgroundColor: '#c9a961',
+              color: '#0e0e0e',
+              textAlign: 'center',
+              padding: '14px',
+              fontSize: '12px',
+              fontWeight: 700,
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              textDecoration: 'none',
+            }}
           >
             {t('reserve')}
           </Link>
