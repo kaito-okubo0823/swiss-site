@@ -6,15 +6,6 @@ import MobileMenu from './MobileMenu';
 export default async function Header() {
   const t = await getTranslations('Nav');
 
-  const navItems = [
-    { href: '/about', label: t('about') },
-    { href: '/menu', label: t('menu') },
-    { href: '/gallery', label: t('gallery') },
-    { href: '/access', label: t('access') },
-    { href: '/events', label: t('events') },
-    { href: '/contact', label: t('contact') },
-  ] as const;
-
   return (
     <header className="fixed top-0 w-full z-50 bg-bg/60 backdrop-blur-xl border-b border-gold/15">
       <nav className="max-w-7xl mx-auto px-5 md:px-8 py-3 md:py-4 flex justify-between items-center">
@@ -23,11 +14,11 @@ export default async function Header() {
         </Link>
 
         <ul className="hidden lg:flex gap-9 list-none">
-          {navItems.slice(0, 5).map((item) => (
-            <li key={item.href}>
-              <Link href={item.href} className="nav-link">{item.label}</Link>
-            </li>
-          ))}
+          <li><Link href="/about" className="nav-link">{t('about')}</Link></li>
+          <li><Link href="/menu" className="nav-link">{t('menu')}</Link></li>
+          <li><Link href="/gallery" className="nav-link">{t('gallery')}</Link></li>
+          <li><Link href="/access" className="nav-link">{t('access')}</Link></li>
+          <li><Link href="/events" className="nav-link">{t('events')}</Link></li>
         </ul>
 
         <div className="flex items-center gap-3 md:gap-4">
@@ -40,7 +31,7 @@ export default async function Header() {
           >
             {t('reserve')}
           </Link>
-          <MobileMenu navItems={[...navItems]} reserveLabel={t('reserve')} />
+          <MobileMenu />
         </div>
       </nav>
     </header>
