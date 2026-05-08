@@ -1,5 +1,16 @@
+import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import SectionHead from '@/components/SectionHead';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Events' });
+  return { title: t('title') };
+}
 
 export default async function EventsPage({
   params,

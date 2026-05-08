@@ -22,6 +22,44 @@ html {
   scroll-behavior: smooth;
 }
 
+/* スキップリンク (アクセシビリティ) */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-gold);
+  color: var(--color-bg);
+  padding: 10px 16px;
+  z-index: 999;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--color-text);
+}
+
+/* フォーカス可視化 */
+*:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* タッチターゲット最小サイズ */
+button, a {
+  min-height: 32px;
+}
+
 body {
   background: var(--color-bg);
   color: var(--color-text);

@@ -1,18 +1,35 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function ReservationForm() {
   const t = useTranslations('Reservation');
+  const locale = useLocale();
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Phase 3 で /api/reservation エンドポイントを実装予定
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    (e.target as HTMLFormElement).reset();
+    setSubmitting(true);
+
+    const fd = new FormData(e.currentTarget);
+    const data = Object.fromEntries(fd.entries());
+
+    try {
+      await fetch('/api/reservation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...data, locale }),
+      });
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 5000);
+      (e.target as HTMLFormElement).reset();
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const labelCls = "block text-[0.7rem] text-text-mute tracking-[0.18em] mb-2 uppercase font-medium";
@@ -26,11 +43,11 @@ export default function ReservationForm() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
           <label className={labelCls}>{t('date')}</label>
-          <input type="date" required className={inputCls} />
+          <input name="date" type="date" required className={inputCls} />
         </div>
         <div>
           <label className={labelCls}>{t('time')}</label>
-          <select required className={inputCls}>
+          <select name="time" required className={inputCls}>
             {['11:30','12:00','12:30','13:00','18:00','18:30','19:00','19:30','20:00','20:30','21:00'].map(t => (
               <option key={t}>{t}</option>
             ))}
@@ -38,7 +55,7 @@ export default function ReservationForm() {
         </div>
         <div>
           <label className={labelCls}>{t('guests')}</label>
-          <select required className={inputCls}>
+          <select name="guests" required className={inputCls}>
             {[1,2,3,4,5,6,7,'8+'].map(n => <option key={n}>{n}</option>)}
           </select>
         </div>
@@ -47,35 +64,36 @@ export default function ReservationForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className={labelCls}>{t('name')}</label>
-          <input type="text" required className={inputCls} />
+          <input name="name" type="text" required className={inputCls} />
         </div>
         <div>
           <label className={labelCls}>{t('email')}</label>
-          <input type="email" required className={inputCls} />
+          <input name="email" type="email" required className={inputCls} />
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className={labelCls}>{t('phone')}</label>
-          <input type="tel" required className={inputCls} />
+          <input name="phone" type="tel" required className={inputCls} />
         </div>
         <div>
           <label className={labelCls}>{t('occasion')}</label>
-          <input type="text" className={inputCls} />
+          <input name="occasion" type="text" className={inputCls} />
         </div>
       </div>
 
       <div>
         <label className={labelCls}>{t('notes')}</label>
-        <textarea rows={3} className={inputCls + " resize-y"} />
+        <textarea name="notes" rows={3} className={inputCls + " resize-y"} />
       </div>
 
       <button
         type="submit"
-        className="w-full bg-gold text-bg border border-gold py-4 text-xs font-semibold tracking-[0.25em] uppercase hover:bg-transparent hover:text-gold transition-all mt-2"
+        disabled={submitting}
+        className="w-full bg-gold text-bg border border-gold py-4 text-xs font-semibold tracking-[0.25em] uppercase hover:bg-transparent hover:text-gold transition-all mt-2 disabled:opacity-60"
       >
-        {t('submit')}
+        {submitting ? '...' : t('submit')}
       </button>
 
       {submitted && (

@@ -1,54 +1,72 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 type Msg = { type: 'bot' | 'user'; text: string };
 
 export default function ChatBot() {
   const t = useTranslations('Chat');
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([{ type: 'bot', text: t('welcome') }]);
   const [input, setInput] = useState('');
+  const [thinking, setThinking] = useState(false);
   const bodyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (bodyRef.current) bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
-  }, [messages]);
+  }, [messages, thinking]);
 
-  // 言語切替時に最初のメッセージを更新
   useEffect(() => {
     setMessages([{ type: 'bot', text: t('welcome') }]);
   }, [t]);
 
-  const ask = (topic: 'hours' | 'reserve' | 'menu' | 'access') => {
+  const ask = async (topic: 'hours' | 'reserve' | 'menu' | 'access') => {
     const userText = t(`q_${topic}` as 'q_hours' | 'q_reserve' | 'q_menu' | 'q_access');
-    const botText = t(`a_${topic}` as 'a_hours' | 'a_reserve' | 'a_menu' | 'a_access');
     setMessages((m) => [...m, { type: 'user', text: userText }]);
-    setTimeout(() => setMessages((m) => [...m, { type: 'bot', text: botText }]), 600);
+    setThinking(true);
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userText, locale }),
+      });
+      const data = await res.json();
+      setMessages((m) => [...m, { type: 'bot', text: data.reply || t(`a_${topic}` as 'a_hours' | 'a_reserve' | 'a_menu' | 'a_access') }]);
+    } catch {
+      // fallback
+      setMessages((m) => [...m, { type: 'bot', text: t(`a_${topic}` as 'a_hours' | 'a_reserve' | 'a_menu' | 'a_access') }]);
+    } finally {
+      setThinking(false);
+    }
   };
 
-  const send = () => {
+  const send = async () => {
     const text = input.trim();
     if (!text) return;
     setMessages((m) => [...m, { type: 'user', text }]);
     setInput('');
+    setThinking(true);
 
-    setTimeout(() => {
-      const lower = text.toLowerCase();
-      let reply: string;
-      if (/zeit|hour|open|orari|horaire|öffnung|aperto/.test(lower)) reply = t('a_hours');
-      else if (/reserv|prenot/.test(lower)) reply = t('a_reserve');
-      else if (/menu|karte|carte|cibo|food/.test(lower)) reply = t('a_menu');
-      else if (/anfahrt|access|come|comment|where|dove|wo/.test(lower)) reply = t('a_access');
-      else reply = t('a_default');
-      setMessages((m) => [...m, { type: 'bot', text: reply }]);
-    }, 700);
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text, locale }),
+      });
+      const data = await res.json();
+      setMessages((m) => [...m, { type: 'bot', text: data.reply || t('a_default') }]);
+    } catch {
+      setMessages((m) => [...m, { type: 'bot', text: t('a_default') }]);
+    } finally {
+      setThinking(false);
+    }
   };
 
   return (
     <>
-      {/* フローティングボタン */}
       <button
         onClick={() => setOpen(!open)}
         className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-gold text-bg text-2xl shadow-[0_8px_24px_rgba(201,169,97,0.4)] z-[150] hover:scale-110 transition-transform"
@@ -57,13 +75,11 @@ export default function ChatBot() {
         {open ? '×' : '💬'}
       </button>
 
-      {/* チャットウィンドウ */}
       <div
         className={`fixed bottom-24 right-6 w-[360px] max-w-[calc(100vw-3rem)] h-[480px] bg-bg-2 border border-gold-dark z-[150] flex-col shadow-2xl transition-all duration-300 ${
           open ? 'flex animate-fade-up' : 'hidden'
         }`}
       >
-        {/* ヘッダー */}
         <div className="p-4 bg-bg-3 border-b border-border">
           <h4 className="font-serif text-gold text-base font-medium">{t('title')}</h4>
           <div className="text-xs text-emerald-400 flex items-center gap-1.5 mt-1">
@@ -72,8 +88,7 @@ export default function ChatBot() {
           </div>
         </div>
 
-        {/* メッセージ */}
-        <div ref={bodyRef} className="flex-1 overflow-y-auto p-4 flex flex-col gap-3">
+        <div ref={bodyRef} className="flex-1 overflow-y-auto p-4 flex flex-col gap-3 chat-scroll">
           {messages.map((m, i) => (
             <div
               key={i}
@@ -87,7 +102,17 @@ export default function ChatBot() {
             </div>
           ))}
 
-          {messages.length === 1 && (
+          {thinking && (
+            <div className="bg-bg-3 self-start rounded-xl rounded-bl-sm px-3.5 py-2.5 text-sm">
+              <span className="inline-flex gap-1">
+                <span className="w-1.5 h-1.5 bg-gold rounded-full animate-bounce" style={{animationDelay: '0ms'}} />
+                <span className="w-1.5 h-1.5 bg-gold rounded-full animate-bounce" style={{animationDelay: '150ms'}} />
+                <span className="w-1.5 h-1.5 bg-gold rounded-full animate-bounce" style={{animationDelay: '300ms'}} />
+              </span>
+            </div>
+          )}
+
+          {messages.length === 1 && !thinking && (
             <div className="flex flex-wrap gap-1.5 mt-2">
               {(['hours', 'reserve', 'menu', 'access'] as const).map((q) => (
                 <button
@@ -102,7 +127,6 @@ export default function ChatBot() {
           )}
         </div>
 
-        {/* 入力欄 */}
         <div className="border-t border-border p-3 flex gap-2">
           <input
             type="text"
@@ -114,7 +138,8 @@ export default function ChatBot() {
           />
           <button
             onClick={send}
-            className="bg-gold text-bg px-4 py-2 font-semibold hover:opacity-90 transition-opacity"
+            disabled={thinking}
+            className="bg-gold text-bg px-4 py-2 font-semibold hover:opacity-90 transition-opacity disabled:opacity-50"
           >
             →
           </button>

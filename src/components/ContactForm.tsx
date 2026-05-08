@@ -1,17 +1,35 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function ContactForm() {
   const t = useTranslations('Contact');
+  const locale = useLocale();
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    (e.target as HTMLFormElement).reset();
+    setSubmitting(true);
+
+    const fd = new FormData(e.currentTarget);
+    const data = Object.fromEntries(fd.entries());
+
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...data, locale }),
+      });
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 5000);
+      (e.target as HTMLFormElement).reset();
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const labelCls = "block text-[0.7rem] text-text-mute tracking-[0.18em] mb-2 uppercase font-medium";
@@ -25,32 +43,33 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className={labelCls}>{t('name')}</label>
-          <input type="text" required className={inputCls} />
+          <input name="name" type="text" required className={inputCls} />
         </div>
         <div>
           <label className={labelCls}>{t('email')}</label>
-          <input type="email" required className={inputCls} />
+          <input name="email" type="email" required className={inputCls} />
         </div>
       </div>
 
       <div>
         <label className={labelCls}>{t('subject')}</label>
-        <input type="text" required className={inputCls} />
+        <input name="subject" type="text" required className={inputCls} />
       </div>
 
       <div>
         <label className={labelCls}>{t('message')}</label>
-        <textarea rows={6} required className={inputCls + " resize-y"} />
+        <textarea name="message" rows={6} required className={inputCls + " resize-y"} />
       </div>
 
-      {/* ハニーポット (スパム対策) */}
+      {/* ハニーポット (botトラップ) */}
       <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
       <button
         type="submit"
-        className="w-full bg-gold text-bg border border-gold py-4 text-xs font-semibold tracking-[0.25em] uppercase hover:bg-transparent hover:text-gold transition-all"
+        disabled={submitting}
+        className="w-full bg-gold text-bg border border-gold py-4 text-xs font-semibold tracking-[0.25em] uppercase hover:bg-transparent hover:text-gold transition-all disabled:opacity-60"
       >
-        {t('submit')}
+        {submitting ? '...' : t('submit')}
       </button>
 
       {submitted && (

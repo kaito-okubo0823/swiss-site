@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import SectionHead from '@/components/SectionHead';
 import MenuList from '@/components/MenuList';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Menu' });
+  return {
+    title: t('title'),
+    description: t('desc'),
+  };
+}
 
 export default async function MenuPage({
   params,

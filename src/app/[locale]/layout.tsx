@@ -9,6 +9,7 @@ import Footer from '@/components/Footer';
 import ChatBot from '@/components/ChatBot';
 import CookieConsent from '@/components/CookieConsent';
 import StructuredData from '@/components/StructuredData';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 import '../globals.css';
 
 const playfair = Playfair_Display({
@@ -108,13 +109,15 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${playfair.variable} ${inter.variable}`}>
       <body className="bg-bg text-text font-sans antialiased">
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <NextIntlClientProvider>
           <Header />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer />
           <ChatBot />
           <CookieConsent />
           <StructuredData />
+          <GoogleAnalytics />
         </NextIntlClientProvider>
       </body>
     </html>
