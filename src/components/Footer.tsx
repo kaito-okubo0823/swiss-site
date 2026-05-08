@@ -16,12 +16,28 @@ export default async function Footer() {
             Schweizer Küche, neu interpretiert.<br />Seit 1987 in Zürich.
           </p>
           <div className="flex gap-3 mt-4">
-            {['Instagram', 'Facebook', 'TripAdvisor', 'Google'].map((s) => (
-              <a key={s} href="#" aria-label={s}
-                className="w-9 h-9 border border-border rounded-full flex items-center justify-center text-text-dim hover:bg-gold hover:text-bg hover:border-gold transition-all">
-                {s[0]}
-              </a>
-            ))}
+            <a href="#" aria-label="Instagram" className="w-9 h-9 border border-border rounded-full flex items-center justify-center text-text-dim hover:bg-gold hover:text-bg hover:border-gold transition-all">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook" className="w-9 h-9 border border-border rounded-full flex items-center justify-center text-text-dim hover:bg-gold hover:text-bg hover:border-gold transition-all">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="TripAdvisor" className="w-9 h-9 border border-border rounded-full flex items-center justify-center text-text-dim hover:bg-gold hover:text-bg hover:border-gold transition-all">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.006 4.295c-2.67 0-5.338.784-7.645 2.353H0l1.953 2.122a5.4 5.4 0 0 0 3.7 9.331 5.387 5.387 0 0 0 4.078-1.86l1.872 2.039 1.873-2.039a5.382 5.382 0 0 0 4.077 1.857 5.4 5.4 0 0 0 3.702-9.327l1.952-2.123h-4.36a13.594 13.594 0 0 0-7.842-2.353zm0 1.886c1.89 0 3.722.39 5.412 1.105-2.86 1.193-5.408 3.83-5.41 7.025-.002-3.196-2.553-5.834-5.413-7.024a13.93 13.93 0 0 1 5.41-1.106zM5.65 8.41a3.518 3.518 0 0 1 3.522 3.518A3.518 3.518 0 0 1 5.65 15.45a3.516 3.516 0 0 1-3.518-3.518A3.517 3.517 0 0 1 5.65 8.41zm12.708 0a3.518 3.518 0 0 1 3.518 3.518 3.518 3.518 0 0 1-3.518 3.518 3.518 3.518 0 0 1-3.522-3.518A3.518 3.518 0 0 1 18.36 8.41z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Google" className="w-9 h-9 border border-border rounded-full flex items-center justify-center text-text-dim hover:bg-gold hover:text-bg hover:border-gold transition-all">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+              </svg>
+            </a>
           </div>
         </div>
 
