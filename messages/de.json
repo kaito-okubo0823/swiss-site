@@ -27,6 +27,85 @@
     "closed": "Geschlossen",
     "open": "11:30 – 23:00"
   },
+  "Common": {
+    "tag": "Speisekarte",
+    "loading": "Lädt...",
+    "error": "Fehler aufgetreten",
+    "send": "Senden",
+    "submit": "Bestätigen",
+    "cancel": "Abbrechen"
+  },
+  "About": {
+    "tag": "Unsere Geschichte",
+    "title": "Die Berge auf Ihrem Teller",
+    "heading": "Eine Familie, eine Leidenschaft.",
+    "p1": "Seit über 35 Jahren steht Alpine Kitchen für authentische Schweizer Küche mit modernem Twist. Was 1987 als kleines Familienrestaurant in Zürich begann, ist heute eine kulinarische Institution.",
+    "p2": "Unser Chef Stefan Brunner reist persönlich durch die Schweizer Alpen, um die besten Zutaten direkt von den Bauern zu beziehen. Jedes Gericht erzählt eine Geschichte von Tradition, Handwerk und Innovation.",
+    "p3": "Wir sind stolz darauf, Mitglied von „Goût Mieux\" zu sein und ausschliesslich saisonale, lokale Produkte zu verwenden.",
+    "signature": "Stefan Brunner, Chef"
+  },
+  "Menu": {
+    "tag": "Speisekarte",
+    "title": "Saisonale Spezialitäten",
+    "desc": "Unsere Karte wechselt mit den Jahreszeiten. Alle Preise in CHF, inklusive MwSt.",
+    "starters": "Vorspeisen",
+    "mains": "Hauptgerichte",
+    "desserts": "Desserts",
+    "drinks": "Getränke",
+    "pdf": "PDF Speisekarte"
+  },
+  "Reservation": {
+    "tag": "Reservation",
+    "title": "Tisch reservieren",
+    "desc": "Wir bestätigen Ihre Reservation innerhalb von 2 Stunden per E-Mail.",
+    "date": "Datum",
+    "time": "Uhrzeit",
+    "guests": "Personen",
+    "name": "Name",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "occasion": "Anlass (optional)",
+    "notes": "Anmerkungen / Allergien",
+    "submit": "Reservation bestätigen",
+    "success": "Vielen Dank! Wir bestätigen Ihre Reservation per E-Mail."
+  },
+  "Access": {
+    "tag": "Anfahrt",
+    "title": "Wir freuen uns auf Sie",
+    "address": "Adresse",
+    "phone": "Telefon",
+    "hours": "Öffnungszeiten",
+    "transit": "Anfahrt",
+    "transit_value": "3 Min. zu Fuss vom Hauptbahnhof Zürich · Tram 4, 11, 13 — Haltestelle Paradeplatz"
+  },
+  "Gallery": {
+    "tag": "Galerie",
+    "title": "Bilder aus unserem Restaurant"
+  },
+  "Events": {
+    "tag": "Events & News",
+    "title": "Aktuelles aus Alpine Kitchen",
+    "e1_date": "15. Dezember 2025",
+    "e1_title": "Wintermenü 2025",
+    "e1_desc": "Unser neues Wintermenü mit Wildgerichten, Käsespezialitäten und winterlichen Desserts.",
+    "e2_date": "22. Dezember 2025",
+    "e2_title": "Weindegustation",
+    "e2_desc": "Walliser Weine treffen Schweizer Käse — ein Abend für Geniesser. CHF 89 pro Person.",
+    "e3_date": "31. Dezember 2025",
+    "e3_title": "Silvester-Gala",
+    "e3_desc": "7-Gänge Menü, Live-Musik und Champagner zum Jahreswechsel. Reservation empfohlen."
+  },
+  "Contact": {
+    "tag": "Kontakt",
+    "title": "Schreiben Sie uns",
+    "desc": "Wir antworten innerhalb von 24 Stunden.",
+    "name": "Name",
+    "email": "E-Mail",
+    "subject": "Betreff",
+    "message": "Nachricht",
+    "submit": "Nachricht senden",
+    "success": "Vielen Dank! Wir melden uns bei Ihnen."
+  },
   "Footer": {
     "rights": "Alle Rechte vorbehalten",
     "impressum": "Impressum",

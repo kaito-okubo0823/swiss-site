@@ -27,6 +27,85 @@
     "closed": "Fermé",
     "open": "11h30 – 23h00"
   },
+  "Common": {
+    "tag": "Carte",
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "send": "Envoyer",
+    "submit": "Confirmer",
+    "cancel": "Annuler"
+  },
+  "About": {
+    "tag": "Notre Histoire",
+    "title": "Les montagnes dans votre assiette",
+    "heading": "Une famille, une passion.",
+    "p1": "Depuis plus de 35 ans, Alpine Kitchen incarne l'authentique cuisine suisse avec une touche moderne. Né en 1987 comme petit restaurant familial, il est aujourd'hui une institution culinaire.",
+    "p2": "Notre chef Stefan Brunner parcourt personnellement les Alpes suisses pour s'approvisionner directement chez les producteurs. Chaque plat raconte une histoire de tradition et d'innovation.",
+    "p3": "Nous sommes fiers d'être membres de „Goût Mieux\" et d'utiliser exclusivement des produits saisonniers et locaux.",
+    "signature": "Stefan Brunner, Chef"
+  },
+  "Menu": {
+    "tag": "La Carte",
+    "title": "Spécialités de saison",
+    "desc": "Notre carte change avec les saisons. Tous les prix en CHF, TVA incluse.",
+    "starters": "Entrées",
+    "mains": "Plats",
+    "desserts": "Desserts",
+    "drinks": "Boissons",
+    "pdf": "Carte PDF"
+  },
+  "Reservation": {
+    "tag": "Réservation",
+    "title": "Réserver une table",
+    "desc": "Nous confirmons votre réservation par e-mail dans les 2 heures.",
+    "date": "Date",
+    "time": "Heure",
+    "guests": "Personnes",
+    "name": "Nom",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "occasion": "Occasion (optionnel)",
+    "notes": "Remarques / Allergies",
+    "submit": "Confirmer la réservation",
+    "success": "Merci! Nous confirmons votre réservation par e-mail."
+  },
+  "Access": {
+    "tag": "Accès",
+    "title": "Nous nous réjouissons de vous accueillir",
+    "address": "Adresse",
+    "phone": "Téléphone",
+    "hours": "Horaires",
+    "transit": "Accès",
+    "transit_value": "3 min à pied de la gare de Zurich · Tram 4, 11, 13 — Arrêt Paradeplatz"
+  },
+  "Gallery": {
+    "tag": "Galerie",
+    "title": "Images de notre restaurant"
+  },
+  "Events": {
+    "tag": "Événements",
+    "title": "Actualités d'Alpine Kitchen",
+    "e1_date": "15 décembre 2025",
+    "e1_title": "Menu d'hiver 2025",
+    "e1_desc": "Notre nouveau menu d'hiver avec gibier, spécialités fromagères et desserts hivernaux.",
+    "e2_date": "22 décembre 2025",
+    "e2_title": "Dégustation de vins",
+    "e2_desc": "Vins du Valais et fromages suisses — une soirée pour gourmets. CHF 89 par personne.",
+    "e3_date": "31 décembre 2025",
+    "e3_title": "Gala de Saint-Sylvestre",
+    "e3_desc": "Menu 7 services, musique live et champagne. Réservation recommandée."
+  },
+  "Contact": {
+    "tag": "Contact",
+    "title": "Écrivez-nous",
+    "desc": "Nous répondons sous 24 heures.",
+    "name": "Nom",
+    "email": "E-mail",
+    "subject": "Sujet",
+    "message": "Message",
+    "submit": "Envoyer le message",
+    "success": "Merci! Nous vous recontacterons."
+  },
   "Footer": {
     "rights": "Tous droits réservés",
     "impressum": "Mentions légales",

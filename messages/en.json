@@ -27,6 +27,85 @@
     "closed": "Closed",
     "open": "11:30 AM – 11:00 PM"
   },
+  "Common": {
+    "tag": "Menu",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "send": "Send",
+    "submit": "Confirm",
+    "cancel": "Cancel"
+  },
+  "About": {
+    "tag": "Our Story",
+    "title": "The mountains on your plate",
+    "heading": "One family, one passion.",
+    "p1": "For over 35 years, Alpine Kitchen has stood for authentic Swiss cuisine with a modern twist. What began in 1987 as a small family restaurant in Zurich is now a culinary institution.",
+    "p2": "Our chef Stefan Brunner travels personally through the Swiss Alps to source the finest ingredients directly from farmers. Every dish tells a story of tradition, craftsmanship, and innovation.",
+    "p3": "We are proud members of \"Goût Mieux\" and exclusively use seasonal, local products.",
+    "signature": "Stefan Brunner, Chef"
+  },
+  "Menu": {
+    "tag": "Menu",
+    "title": "Seasonal Specialties",
+    "desc": "Our menu changes with the seasons. All prices in CHF, including VAT.",
+    "starters": "Starters",
+    "mains": "Main Courses",
+    "desserts": "Desserts",
+    "drinks": "Drinks",
+    "pdf": "PDF Menu"
+  },
+  "Reservation": {
+    "tag": "Reservation",
+    "title": "Reserve a Table",
+    "desc": "We confirm your reservation by email within 2 hours.",
+    "date": "Date",
+    "time": "Time",
+    "guests": "Guests",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "occasion": "Occasion (optional)",
+    "notes": "Notes / Allergies",
+    "submit": "Confirm Reservation",
+    "success": "Thank you! We will confirm your reservation by email."
+  },
+  "Access": {
+    "tag": "Access",
+    "title": "We look forward to welcoming you",
+    "address": "Address",
+    "phone": "Phone",
+    "hours": "Hours",
+    "transit": "Getting there",
+    "transit_value": "3 min walk from Zurich Main Station · Tram 4, 11, 13 — Paradeplatz stop"
+  },
+  "Gallery": {
+    "tag": "Gallery",
+    "title": "Images from our restaurant"
+  },
+  "Events": {
+    "tag": "Events & News",
+    "title": "News from Alpine Kitchen",
+    "e1_date": "December 15, 2025",
+    "e1_title": "Winter Menu 2025",
+    "e1_desc": "Our new winter menu featuring game dishes, cheese specialties and winter desserts.",
+    "e2_date": "December 22, 2025",
+    "e2_title": "Wine Tasting",
+    "e2_desc": "Valais wines meet Swiss cheeses — an evening for connoisseurs. CHF 89 per person.",
+    "e3_date": "December 31, 2025",
+    "e3_title": "New Year's Eve Gala",
+    "e3_desc": "7-course menu, live music and champagne. Reservation recommended."
+  },
+  "Contact": {
+    "tag": "Contact",
+    "title": "Write to us",
+    "desc": "We respond within 24 hours.",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Send Message",
+    "success": "Thank you! We will get back to you."
+  },
   "Footer": {
     "rights": "All rights reserved",
     "impressum": "Imprint",
