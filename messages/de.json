@@ -106,6 +106,28 @@
     "submit": "Nachricht senden",
     "success": "Vielen Dank! Wir melden uns bei Ihnen."
   },
+  "Cookie": {
+    "title": "Cookie-Einstellungen",
+    "desc": "Wir verwenden Cookies, um Ihnen das beste Erlebnis zu bieten. Gemäss neuem Schweizer Datenschutzgesetz (nFADP).",
+    "essential": "Nur notwendige",
+    "all": "Alle akzeptieren"
+  },
+  "Chat": {
+    "title": "Alpine Assistant",
+    "status": "Online · 4 Sprachen",
+    "welcome": "Grüezi! 👋 Ich bin Ihr digitaler Assistent. Wie kann ich Ihnen helfen?",
+    "q_hours": "Öffnungszeiten?",
+    "q_reserve": "Reservieren",
+    "q_menu": "Speisekarte",
+    "q_access": "Anfahrt",
+    "a_hours": "Wir sind Mo–Sa von 11:30 bis 23:00 Uhr geöffnet. Sonntags geschlossen. 🕐",
+    "a_reserve": "Sie können einen Tisch direkt online reservieren. 📅",
+    "a_menu": "Unsere Karte wechselt mit den Jahreszeiten. Aktuell servieren wir unser Wintermenü. 🍽️",
+    "a_access": "Wir sind an der Bahnhofstrasse 42, 8001 Zürich. 3 Min. zu Fuss vom Hauptbahnhof. 📍",
+    "a_default": "Für komplexere Fragen rufen Sie uns bitte an: +41 44 123 45 67 📞",
+    "placeholder": "Frage eingeben...",
+    "send": "Senden"
+  },
   "Footer": {
     "rights": "Alle Rechte vorbehalten",
     "impressum": "Impressum",

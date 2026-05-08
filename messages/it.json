@@ -106,6 +106,28 @@
     "submit": "Invia messaggio",
     "success": "Grazie! Vi ricontatteremo."
   },
+  "Cookie": {
+    "title": "Impostazioni Cookie",
+    "desc": "Usiamo i cookie per offrirti la miglior esperienza. In conformità con la nLPD svizzera.",
+    "essential": "Solo necessari",
+    "all": "Accetta tutti"
+  },
+  "Chat": {
+    "title": "Alpine Assistant",
+    "status": "Online · 4 lingue",
+    "welcome": "Buongiorno! 👋 Sono il tuo assistente digitale. Come posso aiutarti?",
+    "q_hours": "Orari?",
+    "q_reserve": "Prenotare",
+    "q_menu": "Menu",
+    "q_access": "Accesso",
+    "a_hours": "Siamo aperti dal lunedì al sabato dalle 11:30 alle 23:00. Domenica chiusi. 🕐",
+    "a_reserve": "Puoi prenotare un tavolo online. 📅",
+    "a_menu": "Il nostro menu cambia con le stagioni. Attualmente serviamo il menu invernale. 🍽️",
+    "a_access": "Siamo in Bahnhofstrasse 42, 8001 Zurigo. 3 minuti a piedi dalla stazione. 📍",
+    "a_default": "Per domande più complesse, chiamaci al +41 44 123 45 67 📞",
+    "placeholder": "Fai una domanda...",
+    "send": "Invia"
+  },
   "Footer": {
     "rights": "Tutti i diritti riservati",
     "impressum": "Note legali",

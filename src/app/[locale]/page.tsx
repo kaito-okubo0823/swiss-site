@@ -18,7 +18,7 @@ export default async function HomePage({
       <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
         {/* 背景画像 */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center animate-kenburns"
           style={{
             backgroundImage: `linear-gradient(135deg, rgba(14,14,14,0.5) 0%, rgba(14,14,14,0.85) 100%), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=85')`,
           }}

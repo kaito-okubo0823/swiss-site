@@ -14,7 +14,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="hidden md:flex gap-1 text-xs tracking-wider">
+    <div className="flex gap-1 text-xs tracking-wider">
       {routing.locales.map((lang) => (
         <button
           key={lang}

@@ -106,6 +106,28 @@
     "submit": "Envoyer le message",
     "success": "Merci! Nous vous recontacterons."
   },
+  "Cookie": {
+    "title": "Paramètres cookies",
+    "desc": "Nous utilisons des cookies pour vous offrir la meilleure expérience. Conformément à la nLPD.",
+    "essential": "Uniquement nécessaires",
+    "all": "Tout accepter"
+  },
+  "Chat": {
+    "title": "Alpine Assistant",
+    "status": "En ligne · 4 langues",
+    "welcome": "Bonjour! 👋 Je suis votre assistant numérique. Comment puis-je vous aider?",
+    "q_hours": "Horaires?",
+    "q_reserve": "Réserver",
+    "q_menu": "Carte",
+    "q_access": "Accès",
+    "a_hours": "Nous sommes ouverts du lundi au samedi de 11h30 à 23h00. Fermé le dimanche. 🕐",
+    "a_reserve": "Vous pouvez réserver une table directement en ligne. 📅",
+    "a_menu": "Notre carte change avec les saisons. Actuellement nous servons notre menu d'hiver. 🍽️",
+    "a_access": "Nous sommes à la Bahnhofstrasse 42, 8001 Zurich. 3 min à pied de la gare. 📍",
+    "a_default": "Pour des questions plus complexes, appelez-nous au +41 44 123 45 67 📞",
+    "placeholder": "Posez votre question...",
+    "send": "Envoyer"
+  },
   "Footer": {
     "rights": "Tous droits réservés",
     "impressum": "Mentions légales",

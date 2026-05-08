@@ -50,3 +50,22 @@ body {
   from { transform: scale(1); }
   to { transform: scale(1.08); }
 }
+
+/* フェードアップ */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease-out;
+}
+
+/* Ken Burns 適用 */
+.animate-kenburns {
+  animation: kenburns 20s ease-in-out infinite alternate;
+}
+
+/* スクロールバー（チャット用） */
+.chat-scroll::-webkit-scrollbar { width: 4px; }
+.chat-scroll::-webkit-scrollbar-thumb { background: var(--color-gold-dark); }
