@@ -33,7 +33,7 @@ export default function MobileMenu({
 
       {/* Overlay */}
       <div
-        className={`fixed inset-0 bg-black/70 z-50 transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 bg-black/80 z-50 transition-opacity duration-300 lg:hidden ${
           open ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setOpen(false)}
@@ -41,29 +41,38 @@ export default function MobileMenu({
 
       {/* Slide-out drawer */}
       <aside
-        className={`fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-bg-2 z-50 transition-transform duration-300 ease-out lg:hidden flex flex-col ${
+        style={{ backgroundColor: '#0e0e0e' }}
+        className={`fixed top-0 right-0 bottom-0 w-[85%] max-w-sm z-50 transition-transform duration-300 ease-out lg:hidden flex flex-col shadow-2xl ${
           open ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex justify-between items-center p-6 border-b border-border">
-          <span className="font-serif text-lg text-gold">Menu</span>
+        {/* ヘッダー */}
+        <div
+          style={{ backgroundColor: '#161616' }}
+          className="flex justify-between items-center px-6 py-5 border-b border-gold/30"
+        >
+          <span className="font-serif text-lg text-gold tracking-wider">Menu</span>
           <button
             onClick={() => setOpen(false)}
-            className="text-text text-3xl leading-none w-10 h-10 flex items-center justify-center"
+            className="text-text text-3xl leading-none w-10 h-10 flex items-center justify-center hover:text-gold transition-colors"
             aria-label="Close"
           >
             ×
           </button>
         </div>
 
-        <nav className="flex-1 px-6 py-8">
-          <ul className="space-y-5">
+        {/* メニュー本体 */}
+        <nav
+          style={{ backgroundColor: '#0e0e0e' }}
+          className="flex-1 overflow-y-auto"
+        >
+          <ul className="divide-y divide-gold/15">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block text-text text-base tracking-[0.18em] uppercase hover:text-gold transition-colors py-2"
+                  className="block px-6 py-5 text-text text-base tracking-[0.18em] uppercase font-medium hover:bg-gold/10 hover:text-gold active:bg-gold/20 transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -72,14 +81,18 @@ export default function MobileMenu({
           </ul>
         </nav>
 
-        <div className="p-6 border-t border-border space-y-4">
+        {/* フッター */}
+        <div
+          style={{ backgroundColor: '#161616' }}
+          className="px-6 py-5 border-t border-gold/30 space-y-4"
+        >
           <div className="flex justify-center">
             <LanguageSwitcher />
           </div>
           <Link
             href="/reservation"
             onClick={() => setOpen(false)}
-            className="block w-full bg-gold text-bg text-center py-3 text-xs font-semibold tracking-[0.2em] uppercase"
+            className="block w-full bg-gold text-bg text-center py-3.5 text-xs font-bold tracking-[0.2em] uppercase hover:bg-gold-light transition-colors"
           >
             {reserveLabel}
           </Link>

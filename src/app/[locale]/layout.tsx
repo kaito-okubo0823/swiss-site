@@ -6,7 +6,6 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ChatBot from '@/components/ChatBot';
 import CookieConsent from '@/components/CookieConsent';
 import StructuredData from '@/components/StructuredData';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
@@ -114,7 +113,6 @@ export default async function LocaleLayout({
           <Header />
           <main id="main-content">{children}</main>
           <Footer />
-          <ChatBot />
           <CookieConsent />
           <StructuredData />
           <GoogleAnalytics />
