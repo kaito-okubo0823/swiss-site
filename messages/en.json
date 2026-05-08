@@ -1,0 +1,39 @@
+{
+  "Site": {
+    "name": "Alpine Kitchen",
+    "tagline": "Swiss cuisine, reimagined"
+  },
+  "Nav": {
+    "home": "Home",
+    "about": "Story",
+    "menu": "Menu",
+    "reservation": "Reservation",
+    "access": "Access",
+    "gallery": "Gallery",
+    "events": "Events",
+    "contact": "Contact",
+    "reserve": "Reserve"
+  },
+  "Hero": {
+    "badge": "Since 1987 · Zurich",
+    "title": "Swiss cuisine, reimagined",
+    "lead": "A tribute to the Alps — modern Swiss dishes, local ingredients and an experience you will never forget.",
+    "cta_reserve": "Reserve a Table",
+    "cta_menu": "View Menu"
+  },
+  "Hours": {
+    "weekdays": "Mon–Sat",
+    "sunday": "Sun",
+    "closed": "Closed",
+    "open": "11:30 AM – 11:00 PM"
+  },
+  "Footer": {
+    "rights": "All rights reserved",
+    "impressum": "Imprint",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "newsletter_title": "Newsletter",
+    "newsletter_desc": "Receive our seasonal offers.",
+    "subscribe": "Subscribe"
+  }
+}

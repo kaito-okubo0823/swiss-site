@@ -1,0 +1,39 @@
+{
+  "Site": {
+    "name": "Alpine Kitchen",
+    "tagline": "Cuisine suisse, réinventée"
+  },
+  "Nav": {
+    "home": "Accueil",
+    "about": "Histoire",
+    "menu": "Carte",
+    "reservation": "Réservation",
+    "access": "Accès",
+    "gallery": "Galerie",
+    "events": "Événements",
+    "contact": "Contact",
+    "reserve": "Réserver"
+  },
+  "Hero": {
+    "badge": "Depuis 1987 · Zurich",
+    "title": "Cuisine suisse, réinventée",
+    "lead": "Un hommage aux Alpes — plats suisses modernes, ingrédients locaux et une expérience inoubliable.",
+    "cta_reserve": "Réserver une table",
+    "cta_menu": "Voir la carte"
+  },
+  "Hours": {
+    "weekdays": "Lu–Sa",
+    "sunday": "Di",
+    "closed": "Fermé",
+    "open": "11h30 – 23h00"
+  },
+  "Footer": {
+    "rights": "Tous droits réservés",
+    "impressum": "Mentions légales",
+    "privacy": "Confidentialité",
+    "terms": "CGV",
+    "newsletter_title": "Newsletter",
+    "newsletter_desc": "Recevez nos offres saisonnières.",
+    "subscribe": "S'abonner"
+  }
+}

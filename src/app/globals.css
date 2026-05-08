@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color Palette - Swiss Dark + Gold */
+  --color-bg: #0e0e0e;
+  --color-bg-2: #161616;
+  --color-bg-3: #1f1f1f;
+  --color-gold: #c9a961;
+  --color-gold-light: #e6c989;
+  --color-gold-dark: #9a7d3e;
+  --color-text: #f5f1e8;
+  --color-text-dim: #a8a39a;
+  --color-text-mute: #6b6760;
+  --color-border: #2a2825;
+
+  /* Fonts */
+  --font-serif: var(--font-serif), Georgia, serif;
+  --font-sans: var(--font-sans), -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ナビリンクの共通スタイル */
+.nav-link {
+  color: var(--color-text-dim);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: color 0.3s;
+  position: relative;
+  padding: 4px 0;
+}
+
+.nav-link:hover {
+  color: var(--color-gold);
+}
+
+/* Ken Burns アニメーション */
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
