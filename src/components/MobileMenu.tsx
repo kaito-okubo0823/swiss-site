@@ -9,10 +9,10 @@ export default function MobileMenu() {
   const t = useTranslations('Nav');
   const [open, setOpen] = useState(false);
 
+  // 背景のスクロールはロックしない (ユーザー要望)
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
-  }, [open]);
+  }, []);
 
   const navItems = [
     { href: '/about', label: t('about') },
@@ -33,13 +33,7 @@ export default function MobileMenu() {
         ☰
       </button>
 
-      {/* Overlay */}
-      {open && (
-        <div
-          className="fixed inset-0 bg-black/70 z-40 lg:hidden"
-          onClick={() => setOpen(false)}
-        />
-      )}
+      {/* オーバーレイは廃止 (背景スクロール可能にするため) */}
 
       {/* Slide-out drawer - コンパクト版 */}
       <aside
