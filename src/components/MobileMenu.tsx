@@ -15,6 +15,7 @@ export default function MobileMenu() {
   }, []);
 
   const navItems = [
+    { href: '/', label: t('home') },
     { href: '/about', label: t('about') },
     { href: '/menu', label: t('menu') },
     { href: '/gallery', label: t('gallery') },
